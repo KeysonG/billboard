@@ -1,0 +1,60 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+</div>
+{% for post in posts %}
+	
+	<div class="post">
+		<p class="date">{{ post.published_date }}</p>
+		<h1>{{ post.title }}</h1>
+		<p class="text">{{ post.text|linebreaksbr }}</p>
+		<span class="author">{{post.author}}</span>
+		
+	</div>
+	{% if comments %}
+	<h3>Comments</h3>
+	{% endif %}
+	{% for comment in comments %}
+
+		{% if comment.post == post%}
+			<p><small>{{ comment.author }} :</small> <span>{{ comment.text }}</span></p>
+		{% endif %}
+	{% endfor %}
+	<h3>Add Comment</h3>
+	<form method="POST" action="{% url 'new_comment' %}" class="new_comment_form"> {% csrf_token %}
+		{{ commentform.non_field_errors }}
+		<div class="fieldWrapper">
+		    {{ commentform.text.errors }}
+		    <label for="{{ commentform.text.id_for_label }}">text:</label>
+		    {{ commentform.text }}
+		</div>
+		<div class="fieldWrapper">
+		    {{ commentform.author.errors }}
+		    <label for="{{ commentform.author.id_for_label }}">author:</label>
+		    {{ commentform.author }}
+		</div>
+		<input type="hidden" value="{{ post.id }}" name="post" id = "id_post">
+		<button type="submit" class="btn btn-default post-comment">Save</button>
+	</form>
+{% endfor %}
+
+<div id="next-posts"></div>
+<form id="myform">
+        <input type="text" placeholder="title" name="title">
+        <input type="text" placeholder="message" name="text">
+        <input type="text" placeholder="author" name="author">
+        
+</form>
+<div>
+	
+</div>
+<div class="new-post">
+  <div class="button add">+</div>
+  <div class="next-buttons">
+    <div class="button cancel">+</div>
+    <div class="button save">✓</div>
+  </div>
+
+</div>
+{% endblock %}
+

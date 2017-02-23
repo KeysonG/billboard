@@ -1,0 +1,87 @@
+.pagename{
+	text-align: center;
+	font-size: 40px;
+	color: black;
+}
+.post{
+	margin: 0 auto;
+	border: 3px solid #00b7ef;
+	position: relative;
+	padding: 5px;
+	margin-bottom: 20px;
+	max-width: 800px;
+	padding-left: 20px;
+
+}
+.post h1{
+	font-size: 40px;
+	color: #00b7ef;
+}
+.post .text{
+	color:#00b7ef
+}
+
+.author{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+.date{
+	position: absolute;
+	background:white;
+	top:-20px;
+	padding: 10px;
+}
+#myform{
+	max-width: 800px;
+	margin: 0 auto;
+}
+.new-post{
+	max-width: 800px;
+	border: 1px dashed black;
+	margin: 0 auto;
+	padding: 5px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.button{
+	width: 50px;
+	height: 50px;
+	background: #66CDAA;
+	border-radius: 3px;
+	font-size: 42px;
+	text-align: center;
+	line-height: 42px;
+	color:white;
+	margin: 0 auto;
+	cursor: pointer;
+}
+#myform{
+	border: 3px dashed #00b7ef;
+	height: 200px;
+	padding: 10px;
+	display: none;
+
+}
+#myform{
+	margin-bottom: 20px;
+}
+#myform input[name="author"]{
+	float: right;
+}
+#myform input[name="text"]{
+	height: 100px;
+	width: 200px;
+}
+.cancel,.save{
+	display: inline-block;
+
+}
+.next-buttons{
+text-align: center;
+display: none;
+}
+
+.cancel{
+	background: red;
+}
